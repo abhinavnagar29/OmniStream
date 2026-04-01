@@ -1,0 +1,25 @@
+Hackathon
+Evaluation Focus
+Evaluation will primarily focus on:
+Usability of the end product
+Effectiveness in solving the problem statement
+Real-world applicability (not just a hackathon prototype)
+Uniqueness and innovation in methodology
+Code quality will not be the primary evaluation criterion.
+Participation Rules
+Individuals must work only on the topic assigned to them.
+Tools and Technology
+Participants have full freedom to use any tools, frameworks, or technologies.
+Submission Guidelines
+Submit the GitHub Repo link in the form attached below.
+FORM LINK
+The deadline for submission is 5:00 PM sharp.
+
+Topic 3 (Combined Recommendation System)
+
+Build a generalized recommendation platform that aggregates and suggests content across multiple domains such as videos, music, podcasts, movies, and news.
+
+The system should overcome disconnected platforms by providing personalized recommendations from diverse content sources in a single interface.
+It should understand user preferences across formats and deliver relevant, cross-domain suggestions.
+
+The goal is to create a unified, scalable, and user-centric recommendation experience usable in real-world scenarios.
