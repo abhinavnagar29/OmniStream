@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OmniStream — Cross-domain recommendations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        function show(msg) {
+          try {
+            var el = document.getElementById('__boot_error__');
+            if (!el) {
+              el = document.createElement('pre');
+              el.id = '__boot_error__';
+              el.style.position = 'fixed';
+              el.style.inset = '12px';
+              el.style.zIndex = '999999';
+              el.style.padding = '12px';
+              el.style.whiteSpace = 'pre-wrap';
+              el.style.wordBreak = 'break-word';
+              el.style.fontSize = '12px';
+              el.style.borderRadius = '12px';
+              el.style.background = 'rgba(5, 5, 10, 0.92)';
+              el.style.border = '1px solid rgba(255,255,255,0.12)';
+              el.style.color = 'rgba(255,255,255,0.92)';
+              document.addEventListener('DOMContentLoaded', function () {
+                document.body.appendChild(el);
+              });
+            }
+            el.textContent = 'BOOT ERROR:\n' + msg;
+          } catch (e) {
+            // ignore
+          }
+        }
+
+        window.addEventListener('error', function (e) {
+          show((e && (e.error && e.error.stack)) || (e && e.message) || String(e));
+        });
+        window.addEventListener('unhandledrejection', function (e) {
+          var r = e && e.reason;
+          show((r && (r.stack || r.message)) || String(r));
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

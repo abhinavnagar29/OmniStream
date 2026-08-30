@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-ink-950 text-paper font-sans;
+    font-feature-settings: "cv11", "ss01";
+  }
+  h1, h2, h3, .font-display {
+    font-family: theme('fontFamily.display');
+    letter-spacing: -0.01em;
+  }
+  :focus-visible {
+    outline: 2px solid theme('colors.signal.DEFAULT');
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .content-card {
+    @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 p-4 cursor-pointer;
+  }
+
+  .recommendation-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+  }
+
+  /* The "Signal" spectrum bar -- the product's one signature visual motif.
+     Five channels, five colors, fixed order. See docs/design.md. */
+  .spectrum-bar {
+    @apply flex h-[3px] w-full overflow-hidden rounded-full;
+  }
+  .spectrum-bar > span {
+    @apply flex-1;
+  }
+}
+
+@layer utilities {
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .scrollbar-track-transparent {
+    scrollbar-color: rgba(243, 241, 234, 0.15) transparent;
+  }
+  .scrollbar-thumb-white\/10::-webkit-scrollbar {
+    height: 8px;
+  }
+  .scrollbar-thumb-white\/10::-webkit-scrollbar-thumb {
+    background: rgba(243, 241, 234, 0.12);
+    border-radius: 999px;
+  }
+  .scrollbar-thumb-white\/10::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}

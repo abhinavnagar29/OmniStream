@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-08-25",
+  "dim": 384,
+  "nQueries": 50,
+  "hardware": "1 vCPU sandbox VM, ~4GB RAM -- see notes",
+  "notes": "At 100K, the default HNSW build spawned parallel maintenance workers that contended for the single available core rather than speeding things up; rebuilding with max_parallel_maintenance_workers=0 (single-threaded) completed successfully. Brute-force numbers at 100K were measured by disabling index/bitmap scans on the already-HNSW-indexed table (forcing a real seq scan) rather than rebuilding the table without an index, to avoid a second multi-minute run -- the seq scan cost is identical either way.",
+  "results": [
+    {
+      "size": 10000,
+      "insertMs": 2448,
+      "indexBuildMs": 6235,
+      "bruteForce": { "p50": 7.46, "p95": 10.74 },
+      "hnsw": { "p50": 1.53, "p95": 2.52 },
+      "speedupP50": 4.88
+    },
+    {
+      "size": 50000,
+      "insertMs": 11578,
+      "indexBuildMs": 115995,
+      "bruteForce": { "p50": 36.7, "p95": 39.01 },
+      "hnsw": { "p50": 2.13, "p95": 3.45 },
+      "speedupP50": 17.23
+    },
+    {
+      "size": 100000,
+      "insertMs": 21287,
+      "indexBuildMs": null,
+      "indexBuildNote": "default (parallel) build did not complete in over 9 minutes on this 1-vCPU sandbox; single-threaded rebuild (max_parallel_maintenance_workers=0) succeeded, exact duration not captured due to a background-process logging issue, but completed within roughly 90-180s based on polling",
+      "bruteForce": { "p50": 69.37, "p95": 81.57 },
+      "hnsw": { "p50": 4.08, "p95": 6.76 },
+      "speedupP50": 17.0
+    }
+  ]
+}

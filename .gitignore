@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Environment files -- NEVER commit real secrets. .env.example is the template.
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+logs/
+
+# Redis dump (created by local `redis-server --daemonize yes`)
+dump.rdb
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ML artifacts under ml/models/ (trained CF factors, ranker weights) ARE
+# committed on purpose -- see docs/architecture.md -- so a fresh clone works
+# without retraining. Likewise backend/data/seed/*.csv (the real TMDB
+# snapshot `npm run ingest` reads) is committed on purpose so ingestion
+# works without needing external API access -- do NOT ignore either.
+
+# Editor/OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Test artifacts
+coverage/
+
+# Temp benchmark tables are dropped by the scripts themselves, but just in case:
+*.tmp

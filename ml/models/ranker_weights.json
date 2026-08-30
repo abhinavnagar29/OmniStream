@@ -1,0 +1,23 @@
+{
+  "trainedAt": "2026-08-25T03:56:55Z",
+  "featureOrder": [
+    "ratingScore",
+    "recency",
+    "affinity",
+    "semantic",
+    "cfScore",
+    "popularity"
+  ],
+  "weights": {
+    "ratingScore": 0.22732,
+    "recency": -0.47697,
+    "affinity": -2.77429,
+    "semantic": 2.26009,
+    "cfScore": 17.54127,
+    "popularity": -1.13922
+  },
+  "intercept": -10.95939,
+  "trainAccuracy": 0.9861,
+  "nTrainingRows": 29255,
+  "note": "Logistic-regression distillation of a LightGBM LambdaMART model's feature usage, trained on SIMULATED interaction data (see scripts/simulate/generateInteractions.js). See ml/evaluation_results.json for the actual ranking-quality comparison, which uses the full LightGBM model, not this distilled version."
+}

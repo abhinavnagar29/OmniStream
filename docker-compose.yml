@@ -1,0 +1,47 @@
+# One-command local stack: postgres (with pgvector) + redis + backend.
+# Run: docker compose up --build
+# Then: docker compose exec backend npm run db:migrate && docker compose exec backend npm run ingest
+version: "3.9"
+services:
+  postgres:
+    image: ankane/pgvector:latest   # postgres + pgvector extension preinstalled
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: omnistream
+      POSTGRES_PASSWORD: omnistream_dev_pw
+      POSTGRES_DB: omnistream
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U omnistream"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6380:6379"
+
+  backend:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    environment:
+      DATABASE_URL: postgresql://omnistream:omnistream_dev_pw@postgres:5432/omnistream
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: change-me-in-production
+      PORT: 5050
+      NODE_ENV: production
+    ports:
+      - "5050:5050"
+
+volumes:
+  pgdata:

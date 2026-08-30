@@ -1,0 +1,99 @@
+{
+  "generatedAt": "2026-08-25T03:56:12Z",
+  "protocol": {
+    "splitType": "per-user temporal leave-last-positive-out",
+    "minPositivesForEval": 3,
+    "evalUsers": 297,
+    "candidatesPerUser": 101,
+    "kValues": [
+      5,
+      10
+    ]
+  },
+  "results": {
+    "popularity_baseline": {
+      "precision@5": 0.0081,
+      "recall@5": 0.0404,
+      "hit_rate@5": 0.0404,
+      "ndcg@5": 0.0192,
+      "map@5": 0.0123,
+      "precision@10": 0.0098,
+      "recall@10": 0.0976,
+      "hit_rate@10": 0.0976,
+      "ndcg@10": 0.0371,
+      "map@10": 0.0194,
+      "topic_entropy": 2.314,
+      "catalog_coverage_in_top10": 0.1197
+    },
+    "content_only": {
+      "precision@5": 0.1084,
+      "recall@5": 0.5421,
+      "hit_rate@5": 0.5421,
+      "ndcg@5": 0.5279,
+      "map@5": 0.5231,
+      "precision@10": 0.0562,
+      "recall@10": 0.5623,
+      "hit_rate@10": 0.5623,
+      "ndcg@10": 0.5343,
+      "map@10": 0.5257,
+      "topic_entropy": 2.209,
+      "catalog_coverage_in_top10": 0.3127
+    },
+    "cf_only": {
+      "precision@5": 0.1246,
+      "recall@5": 0.6229,
+      "hit_rate@5": 0.6229,
+      "ndcg@5": 0.5244,
+      "map@5": 0.4914,
+      "precision@10": 0.0697,
+      "recall@10": 0.697,
+      "hit_rate@10": 0.697,
+      "ndcg@10": 0.5477,
+      "map@10": 0.5006,
+      "topic_entropy": 2.086,
+      "catalog_coverage_in_top10": 0.2982
+    },
+    "hybrid": {
+      "precision@5": 0.0997,
+      "recall@5": 0.4983,
+      "hit_rate@5": 0.4983,
+      "ndcg@5": 0.4228,
+      "map@5": 0.3974,
+      "precision@10": 0.0556,
+      "recall@10": 0.5556,
+      "hit_rate@10": 0.5556,
+      "ndcg@10": 0.4414,
+      "map@10": 0.4051,
+      "topic_entropy": 2.186,
+      "catalog_coverage_in_top10": 0.2788
+    },
+    "hybrid_plus_ranker": {
+      "precision@5": 0.1246,
+      "recall@5": 0.6229,
+      "hit_rate@5": 0.6229,
+      "ndcg@5": 0.5227,
+      "map@5": 0.4891,
+      "precision@10": 0.0687,
+      "recall@10": 0.6869,
+      "hit_rate@10": 0.6869,
+      "ndcg@10": 0.5435,
+      "map@10": 0.4977,
+      "topic_entropy": 2.08,
+      "catalog_coverage_in_top10": 0.297
+    },
+    "hybrid_plus_ranker_mmr": {
+      "precision@5": 0.1246,
+      "recall@5": 0.6229,
+      "hit_rate@5": 0.6229,
+      "ndcg@5": 0.5223,
+      "map@5": 0.4885,
+      "precision@10": 0.0687,
+      "recall@10": 0.6869,
+      "hit_rate@10": 0.6869,
+      "ndcg@10": 0.543,
+      "map@10": 0.4971,
+      "topic_entropy": 2.105,
+      "catalog_coverage_in_top10": 0.2957
+    }
+  }
+}

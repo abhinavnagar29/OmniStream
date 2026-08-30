@@ -1,0 +1,41 @@
+{
+  "withRedis": {
+    "name": "redis_on",
+    "requestsPerSec": 988,
+    "latency": {
+      "p50": 12,
+      "p95": 40,
+      "p99": 55,
+      "mean": 14.7
+    },
+    "errors": 0,
+    "non2xx": 0,
+    "totalRequests": 11856,
+    "approxCpuPercentOfOneCore": 86.45,
+    "rssMemoryDeltaMB": 45.95,
+    "cacheHitRate": 100
+  },
+  "withoutRedis": {
+    "name": "redis_off",
+    "requestsPerSec": 88.25,
+    "latency": {
+      "p50": 165,
+      "p95": 236,
+      "p99": 242,
+      "mean": 170.53
+    },
+    "errors": 0,
+    "non2xx": 0,
+    "totalRequests": 1059,
+    "approxCpuPercentOfOneCore": 57.11,
+    "rssMemoryDeltaMB": 27.6,
+    "cacheHitRate": null
+  },
+  "meta": {
+    "generatedAt": "2026-08-25",
+    "hardware": "1 vCPU sandbox VM, ~4GB RAM",
+    "methodology": "autocannon, 15 concurrent connections, 12s duration, against GET /api/recommendations?limit=10 with a real JWT. Redis OFF simulated by monkey-patching getCachedRecommendations to always return null (forces full two-stage recommender computation every request); rate limiter set to an effectively unlimited threshold so it measures the recommender, not the limiter.",
+    "throughputImprovement": 11.2,
+    "p50LatencyImprovement": 13.75
+  }
+}
